@@ -4,9 +4,10 @@ export default function decorate(block) {
     media.preload = true;
     // add source to video element
     const source = document.createElement('source');
-    source.src = video[0].innerHTML;
-    source.type = video[1].innerHTML;
+    source.src = video[0].div.innerHTML;
+    source.type = video[1].div.innerHTML;
     media.append(source)
+    // video.forEach((element) => block.remove(element));
     block.append(media);
 }
   
