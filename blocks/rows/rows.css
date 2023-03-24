@@ -1,0 +1,25 @@
+.rows > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.rows img {
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .rows > div {
+        display: flex;
+        align-items: center;
+        flex-direction: unset;
+    }
+
+    .rows > div > div {
+        flex: 1;
+        margin-left: 32px;
+    }
+
+    .rows > div > div:first-of-type {
+        margin-left: unset;
+    }
+}
