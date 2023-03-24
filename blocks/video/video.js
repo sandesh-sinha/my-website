@@ -6,7 +6,7 @@ export default function decorate(block) {
     const source = document.createElement('source');
     source.src = video[0].innerHTML;
     source.type = video[1].innerHTML;
-    videoElement.append(sourceElement)
-    block.append(videoElement);
+    media.append(source)
+    block.append(media);
 }
   
