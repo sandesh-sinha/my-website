@@ -14,14 +14,19 @@ function playVideo(divWrappingVideo, currentPlaying) {
     }, 1000);
 }
 
+function stopVideo(divWrappingVideo, currentPlaying) {
+    divWrappingVideo.firstElementChild.pause();
+    divWrappingVideo.classList.remove('active');
+    divWrappingVideo.firstElementChild.load();
+}
+
 function startCarousel(sequence) {
     let currentPlaying = 0;
     const switchTimeout = 10000;
     sequence.classList.add('idle');
     playVideo(sequence.children[currentPlaying]);
     setInterval(() => {
-        sequence.children[currentPlaying].firstElementChild.pause();
-        sequence.children[currentPlaying].classList.remove('active');
+        stopVideo(sequence.children[currentPlaying], currentPlaying);
         currentPlaying+=1;
         if(currentPlaying === sequence.childElementCount){
         currentPlaying = 0;
