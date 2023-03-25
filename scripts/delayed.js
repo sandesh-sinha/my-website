@@ -6,9 +6,9 @@ sampleRUM('cwv');
 
 // add more delayed functionality here
 
-function playVideo(divWrappingVideo) {
+function playVideo(divWrappingVideo, currentPlaying) {
     divWrappingVideo.classList.add('active');
-    divWrappingVideo.children[currentPlaying].firstElementChild.muted = true;
+    divWrappingVideo.firstElementChild.muted = true;
     divWrappingVideo.firstElementChild.play();
 }
 
