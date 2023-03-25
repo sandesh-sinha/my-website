@@ -51,7 +51,7 @@ function idleHandler(){
     const carousels = document.querySelectorAll('.sequence');
     carousels.forEach((sequence) => {
         if (!sequence.classList.contains('idle')) {
-            startCarousel();
+            startCarousel(sequence);
         } 
     });
 }
