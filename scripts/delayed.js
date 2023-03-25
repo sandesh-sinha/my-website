@@ -53,13 +53,13 @@ function idleHandler(){
 }
 
 let activityDetector = () => {
-    let idleTimer;
-    window.onload = resetTimer;
-    document.onmousemove = resetTimer;
-    document.onkeydown = resetTimer;
     const resetTimer = () => {
         clearTimeout(idleTimer);
         idleTimer = setTimeout(idleHandler,5000);
     }
+    let idleTimer;
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeydown = resetTimer;
 }
 activityDetector();
