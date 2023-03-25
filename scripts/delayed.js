@@ -62,6 +62,7 @@ function interactionEventHandler(){
 }
 
 let activityDetector = () => {
+    idleHandler();
     const resetTimer = () => {
         interactionEventHandler();
         clearTimeout(idleTimer);
