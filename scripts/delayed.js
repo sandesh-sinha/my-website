@@ -13,7 +13,7 @@ function startCarousel(sequence) {
     setInterval(() => {
         sequence.children[currentPlaying].classList.remove('active');
         currentPlaying+=1;
-        if(currentPlaying === sequence.length){
+        if(currentPlaying === sequence.childElementCount){
         currentPlaying = 0;
         }
         sequence.children[currentPlaying].classList.add('active');
