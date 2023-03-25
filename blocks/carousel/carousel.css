@@ -1,3 +1,7 @@
-.hiddenElement{
+.sequence-element {
     display: none;
+}
+
+.sequence-element.active {
+    display: block;
 }
