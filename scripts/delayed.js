@@ -52,8 +52,18 @@ function idleHandler(){
     carousels.forEach(startCarousel);
 }
 
+function interactionEventHandler(){
+    const carousels = document.querySelectorAll('.sequence');
+    carousels.forEach((sequence) => {
+        if (sequence.classList.contains('idle')) {
+            sequence.classList.remove('idle');
+        }
+    });
+}
+
 let activityDetector = () => {
     const resetTimer = () => {
+        interactionEventHandler();
         clearTimeout(idleTimer);
         idleTimer = setTimeout(idleHandler,5000);
     }
