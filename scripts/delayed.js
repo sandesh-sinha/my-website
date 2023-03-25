@@ -28,7 +28,7 @@ function deactivateCurrentElement(divWrapping){
 }
 
 function activateNextElement(divWrapping){
-    if(divWrapping.classList.contains('active')) divWrapping.classList.add('active');
+    if(!divWrapping.classList.contains('active')) divWrapping.classList.add('active');
     if(divWrapping.querySelectorAll('img').length === 0){
         playVideo(divWrapping);
     }
@@ -40,7 +40,7 @@ function startCarousel(sequence) {
     let currentPlaying = 0;
     const switchTimeout = 10000;
     sequence.classList.add('idle');
-    playVideo(sequence.children[currentPlaying]);
+    activateNextElement(sequence.children[currentPlaying]);
     carouselInterval = setInterval(() => {
         deactivateCurrentElement(sequence.children[currentPlaying], currentPlaying);
         currentPlaying += 1;
