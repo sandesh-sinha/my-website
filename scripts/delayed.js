@@ -18,6 +18,7 @@ function startCarousel(sequence) {
         currentPlaying = 0;
         }
         sequence.children[currentPlaying].classList.add('active');
+        sequence.children[currentPlaying].firstElementChild.muted = true;
         sequence.children[currentPlaying].firstElementChild.play();
     }, switchTimeout);
 }
