@@ -7,12 +7,12 @@ sampleRUM('cwv');
 // add more delayed functionality here
 
 function startCarousel(sequence) {
-    const currentPlaying = 0;
+    let currentPlaying = 0;
     const switchTimeout = 5000;
     sequence.children[currentPlaying].classList.add('active');
     setInterval(() => {
         sequence.children[currentPlaying].classList.remove('active');
-        currentPlaying++;
+        currentPlaying+=1;
         if(currentPlaying === sequence.length){
         currentPlaying = 0;
         }
