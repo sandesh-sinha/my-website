@@ -9,6 +9,7 @@ export default function decorate(block) {
     sequenceElement.classList.add('sequence-element');
     const media = document.createElement('video');
     media.setAttribute('autoplay', true);
+    media.setAttribute('muted', true);
     // add source to video element
     const source = document.createElement('source');
     source.src = url;

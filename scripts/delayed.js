@@ -11,12 +11,14 @@ function startCarousel(sequence) {
     const switchTimeout = 5000;
     sequence.children[currentPlaying].classList.add('active');
     setInterval(() => {
+        sequence.children[currentPlaying].firstElementChild.pause();
         sequence.children[currentPlaying].classList.remove('active');
         currentPlaying+=1;
         if(currentPlaying === sequence.childElementCount){
         currentPlaying = 0;
         }
         sequence.children[currentPlaying].classList.add('active');
+        sequence.children[currentPlaying].firstElementChild.play();
     }, switchTimeout);
 }
 
