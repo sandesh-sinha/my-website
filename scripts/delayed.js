@@ -62,9 +62,9 @@ function idleHandler(){
 
 function stopCarousel(sequence) {
     sequence.classList.remove('idle');
-    sequence.children.forEach((sequenceElement) => {
-        deactivateCurrentElement(sequenceElement);
-    })
+    for(let item of sequence.children){
+        deactivateCurrentElement(item);
+    }
 }
 
 function interactionEventHandler(){
