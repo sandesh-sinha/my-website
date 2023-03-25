@@ -9,14 +9,14 @@ sampleRUM('cwv');
 function startCarousel(sequence) {
     const currentPlaying = 0;
     const switchTimeout = 5000;
-    sequence[currentPlaying].classList.add('active');
+    sequence.children[currentPlaying].classList.add('active');
     setInterval(() => {
-        sequence[currentPlaying].classList.remove('active');
+        sequence.children[currentPlaying].classList.remove('active');
         index++;
         if(index === sequence.length){
         index = 0;
         }
-        sequence[currentPlaying].classList.add('active');
+        sequence.children[currentPlaying].classList.add('active');
     }, switchTimeout);
 }
 
