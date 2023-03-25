@@ -49,7 +49,11 @@ function startCarousel(sequence) {
 
 function idleHandler(){
     const carousels = document.querySelectorAll('.sequence');
-    carousels.forEach(startCarousel);
+    carousels.forEach(() => {
+        if (!sequence.classList.contains('idle')) {
+            startCarousel();
+        } 
+    });
 }
 
 function interactionEventHandler(){

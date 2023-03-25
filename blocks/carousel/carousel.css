@@ -12,6 +12,11 @@
     right: 0px;
     bottom: 0px;
     left: 0px;
+    display: block;
+}
+
+.sequence {
+    display: none;
 }
 
 .sequence-element-video {
