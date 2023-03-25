@@ -9,12 +9,12 @@ sampleRUM('cwv');
 function playVideo(divWrappingVideo, currentPlaying) {
     divWrappingVideo.classList.add('active');
     divWrappingVideo.firstElementChild.muted = true;
-    divWrappingVideo.firstElementChild.play();
+    divWrappingVideo.firstElementChild.delay(1000).play();
 }
 
 function startCarousel(sequence) {
     let currentPlaying = 0;
-    const switchTimeout = 5000;
+    const switchTimeout = 10000;
     sequence.classList.add('idle');
     playVideo(sequence.children[currentPlaying]);
     setInterval(() => {

@@ -6,7 +6,7 @@ export default function decorate(block) {
     const url = carouselElement.children[0].textContent;
     const type = carouselElement.children[1].textContent;
     const sequenceElement = document.createElement('div');
-    sequenceElement.classList.add('sequence-element');
+    sequenceElement.classList.add('sequence-element', 'fadeIn');
     const media = document.createElement('video');
     media.classList.add('sequence-element-video');
     // add source to video element
