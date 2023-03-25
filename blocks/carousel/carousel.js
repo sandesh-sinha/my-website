@@ -8,6 +8,7 @@ export default function decorate(block) {
     const sequenceElement = document.createElement('div');
     sequenceElement.classList.add('sequence-element');
     const media = document.createElement('video');
+    media.classList.add('sequence-element-video');
     // add source to video element
     const source = document.createElement('source');
     source.src = url;
