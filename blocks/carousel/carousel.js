@@ -19,6 +19,7 @@ export default function decorate(block) {
     let media; 
     if(type === 'img') {
       media = carouselElement.querySelector('img');
+      media.classList.add('sequence-element-video');
     }
     else {
       const url = carouselElement.children[0].textContent;
