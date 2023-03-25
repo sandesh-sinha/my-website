@@ -6,10 +6,16 @@ sampleRUM('cwv');
 
 // add more delayed functionality here
 
+function playVideo(divWrappingVideo) {
+    divWrappingVideo.classList.add('active');
+    divWrappingVideo.children[currentPlaying].firstElementChild.muted = true;
+    divWrappingVideo.firstElementChild.play();
+}
+
 function startCarousel(sequence) {
     let currentPlaying = 0;
     const switchTimeout = 5000;
-    sequence.children[currentPlaying].classList.add('active');
+    playVideo(sequence.children[currentPlaying]);
     setInterval(() => {
         sequence.children[currentPlaying].firstElementChild.pause();
         sequence.children[currentPlaying].classList.remove('active');
@@ -17,9 +23,7 @@ function startCarousel(sequence) {
         if(currentPlaying === sequence.childElementCount){
         currentPlaying = 0;
         }
-        sequence.children[currentPlaying].classList.add('active');
-        sequence.children[currentPlaying].firstElementChild.muted = true;
-        sequence.children[currentPlaying].firstElementChild.play();
+        playVideo(sequence.children[currentPlaying]);
     }, switchTimeout);
 }
 
