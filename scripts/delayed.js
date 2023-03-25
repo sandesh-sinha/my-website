@@ -72,6 +72,7 @@ function interactionEventHandler(){
     carousels.forEach((sequence) => {
         if (sequence.classList.contains('idle')) {
             stopCarousel(sequence);
+            clearInterval(carouselInterval);
         }
     });
 }
