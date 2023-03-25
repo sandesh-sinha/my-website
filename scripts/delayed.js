@@ -7,7 +7,6 @@ sampleRUM('cwv');
 // add more delayed functionality here
 
 function playVideo(divWrappingVideo, currentPlaying) {
-    divWrappingVideo.classList.add('active');
     divWrappingVideo.firstElementChild.muted = true;
     setTimeout(() => {
         divWrappingVideo.firstElementChild.play();
@@ -16,8 +15,21 @@ function playVideo(divWrappingVideo, currentPlaying) {
 
 function stopVideo(divWrappingVideo, currentPlaying) {
     divWrappingVideo.firstElementChild.pause();
-    divWrappingVideo.classList.remove('active');
     divWrappingVideo.firstElementChild.load();
+}
+
+function deactivateCurrentElement(divWrapping, currentPlaying){
+    divWrapping.classList.remove('active');
+    if(divWrapping.querySelectorAll('img').length !== 0){
+        stopVideo(divWrapping, currentPlaying);
+    }
+}
+
+function activateNextElement(divWrapping, currentPlaying){
+    divWrapping.classList.add('active');
+    if(divWrapping.querySelectorAll('img').length !== 0){
+        playVideo(divWrapping, currentPlaying);
+    }
 }
 
 function startCarousel(sequence) {
@@ -26,12 +38,12 @@ function startCarousel(sequence) {
     sequence.classList.add('idle');
     playVideo(sequence.children[currentPlaying]);
     setInterval(() => {
-        stopVideo(sequence.children[currentPlaying], currentPlaying);
-        currentPlaying+=1;
+        deactivateCurrentElement(sequence.children[currentPlaying], currentPlaying);
+        currentPlaying += 1;
         if(currentPlaying === sequence.childElementCount){
-        currentPlaying = 0;
+            currentPlaying = 0;
         }
-        playVideo(sequence.children[currentPlaying]);
+        activateNextElement(sequence.children[currentPlaying]);
     }, switchTimeout);
 }
 
