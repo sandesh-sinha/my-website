@@ -20,5 +20,5 @@ function startCarousel(sequence) {
     }, switchTimeout);
 }
 
-const carousels = document.querySelectorAll('sequence');
+const carousels = document.querySelectorAll('.sequence');
 carousels.forEach(startCarousel);
