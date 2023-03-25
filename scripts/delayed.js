@@ -47,5 +47,19 @@ function startCarousel(sequence) {
     }, switchTimeout);
 }
 
-const carousels = document.querySelectorAll('.sequence');
-carousels.forEach(startCarousel);
+function idleHandler(){
+    const carousels = document.querySelectorAll('.sequence');
+    carousels.forEach(startCarousel);
+}
+
+let activityDetector = () => {
+    let idleTimer;
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeydown = resetTimer;
+    const resetTimer = () => {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(idleHandler,5000);
+    }
+}
+activityDetector();
