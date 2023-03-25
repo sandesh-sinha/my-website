@@ -20,14 +20,14 @@ function stopVideo(divWrappingVideo, currentPlaying) {
 
 function deactivateCurrentElement(divWrapping, currentPlaying){
     divWrapping.classList.remove('active');
-    if(divWrapping.querySelectorAll('img').length !== 0){
+    if(divWrapping.querySelectorAll('img').length === 0){
         stopVideo(divWrapping, currentPlaying);
     }
 }
 
 function activateNextElement(divWrapping, currentPlaying){
     divWrapping.classList.add('active');
-    if(divWrapping.querySelectorAll('img').length !== 0){
+    if(divWrapping.querySelectorAll('img').length === 0){
         playVideo(divWrapping, currentPlaying);
     }
 }
