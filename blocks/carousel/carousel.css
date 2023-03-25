@@ -5,3 +5,11 @@
 .sequence-element.active {
     display: block;
 }
+
+.sequence.idle {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}

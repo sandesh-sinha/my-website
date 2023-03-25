@@ -15,6 +15,7 @@ function playVideo(divWrappingVideo, currentPlaying) {
 function startCarousel(sequence) {
     let currentPlaying = 0;
     const switchTimeout = 5000;
+    sequence.classList.add('idle');
     playVideo(sequence.children[currentPlaying]);
     setInterval(() => {
         sequence.children[currentPlaying].firstElementChild.pause();
