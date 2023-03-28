@@ -17,6 +17,8 @@
 
 .sequence {
     display: none;
+    z-index: 100;
+    background-color: black;
 }
 
 .sequence-element-video {
