@@ -38,7 +38,7 @@ let carouselInterval;
 
 function startCarousel(sequence) {
     let currentPlaying = 0;
-    const switchTimeout = 10000;
+    const switchTimeout = 15000;
     sequence.classList.add('idle');
     activateNextElement(sequence.children[currentPlaying]);
     carouselInterval = setInterval(() => {
