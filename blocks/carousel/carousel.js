@@ -13,16 +13,12 @@ async function parseEmbedSequence(block) {
   const parsedChildElements = [];
   childElements.forEach((childElement) => {
     if(childElement.children[1].textContent === 'sequence'){
-      const page = carouselElement.children[0].textContent;
-      const embedCarousel = await fetch(page)
-        .then(function(response) {
-          return response.text();
-        })
-        .then(function(html) {
-          var parser = new DOMParser();
-          var doc = parser.parseFromString(html, "text/html");
-          return doc.querySelector('.carousel');
-        });
+      const pageURL = childElement.children[0].textContent;
+      const page = await fetch(pageURL);
+      const responseText = await page.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(responseText, "text/html");
+      const embedCarousel =  doc.querySelector('.carousel');
       parsedChildElements.push(...embedCarousel.children);
     }
     else {
