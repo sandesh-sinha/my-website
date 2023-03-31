@@ -27,9 +27,9 @@ async function parseEmbedSequence(childElements) {
   return parsedChildElements;
 }
 
-export default function decorate(block) {
+export default async function decorate(block) {
   const blockElements = [...block.children];
-  const carouselElements = parseEmbedSequence(blockElements);
+  const carouselElements = await parseEmbedSequence(blockElements);
   const sequence = document.createElement('div');
   sequence.classList.add('sequence');
   carouselElements.forEach((carouselElement) => {
