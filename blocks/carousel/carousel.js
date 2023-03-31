@@ -8,9 +8,9 @@ function createVideoElement(url, type) {
   return media;
 }
 
-async function parseEmbedSequence(block) {
-  const childElements = [...block.children];
+async function parseEmbedSequence(childElements) {
   const parsedChildElements = [];
+  const sampleJSON = await fetch('https://api.github.com/users/hadley/orgs');
   childElements.forEach((childElement) => {
     if(childElement.children[1].textContent === 'sequence'){
       const pageURL = childElement.children[0].textContent;
