@@ -8,8 +8,33 @@ function createVideoElement(url, type) {
   return media;
 }
 
+async function parseEmbedSequence(block) {
+  const childElements = [...block.children];
+  const parsedChildElements = [];
+  childElements.forEach((childElement) => {
+    if(childElement.children[1].textContent === 'sequence'){
+      const page = carouselElement.children[0].textContent;
+      const embedCarousel = await fetch(page)
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(html) {
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(html, "text/html");
+          return doc.querySelector('.carousel');
+        });
+      parsedChildElements.push(...embedCarousel.children);
+    }
+    else {
+      parsedChildElements.push(childElement);
+    }
+  });
+  return parsedChildElements;
+}
+
 export default function decorate(block) {
-  const carouselElements = [...block.children];
+  const blockElements = [...block.children];
+  const carouselElements = parseEmbedSequence(blockElements);
   const sequence = document.createElement('div');
   sequence.classList.add('sequence');
   carouselElements.forEach((carouselElement) => {
