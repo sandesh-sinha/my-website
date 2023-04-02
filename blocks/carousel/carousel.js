@@ -10,7 +10,7 @@ function createVideoElement(url, type) {
 
 async function parseEmbedSequence(childElements) {
   const parsedChildElements = [];
-  childElements.forEach(async (childElement) => {
+  const parsedElements = await Promise.all(childElements.forEach(async (childElement) => {
     if(childElement.children[1].textContent === 'sequence'){
       const pageURL = childElement.children[0].textContent;
       const page = await fetch(pageURL);
@@ -18,12 +18,18 @@ async function parseEmbedSequence(childElements) {
       const parser = new DOMParser();
       const doc = parser.parseFromString(responseText, "text/html");
       const embedCarousel =  doc.querySelector('.carousel');
-      parsedChildElements.push(...embedCarousel.children);
+      return embedCarousel.children;
     }
     else {
-      parsedChildElements.push(childElement);
+      return childElement;
     }
-  });
+  }));
+  parsedElements.forEach((element) => {
+    if(Array.isArray(element)){
+      parsedChildElements.push(...element);
+    }
+    else parsedChildElements.push(element)
+  })
   return parsedChildElements;
 }
 
