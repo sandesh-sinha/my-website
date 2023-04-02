@@ -10,7 +10,7 @@ function createVideoElement(url, type) {
 
 async function parseEmbedSequence(childElements) {
   const parsedChildElements = [];
-  const parsedElements = await Promise.all(childElements.forEach(async (childElement) => {
+  const parsedElements = await Promise.all(childElements.map(async (childElement) => {
     if(childElement.children[1].textContent === 'sequence'){
       const pageURL = childElement.children[0].textContent;
       const page = await fetch(pageURL);
