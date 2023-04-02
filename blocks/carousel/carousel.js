@@ -25,7 +25,7 @@ async function parseEmbedSequence(childElements) {
     }
   }));
   parsedElements.forEach((element) => {
-    if(Array.isArray(element)){
+    if(element.length){
       parsedChildElements.push(...element);
     }
     else parsedChildElements.push(element)
