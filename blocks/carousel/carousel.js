@@ -18,7 +18,8 @@ async function parseEmbedSequence(childElements) {
       const parser = new DOMParser();
       const doc = parser.parseFromString(responseText, "text/html");
       const embedCarousel =  doc.querySelector('.carousel');
-      return await parseEmbedSequence(embedCarousel.children);
+      const embedCarouselArray = Array.prototype.slice.call(embedCarousel.children);
+      return await parseEmbedSequence(embedCarouselArray);
     }
     else {
       return childElement;
